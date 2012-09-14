@@ -39,9 +39,9 @@ RS.rangeSlider = (function($, window, document, undefined) {
             'step': 0,
             'filterName': '',
             'events': {
-                'onChange': 'onChange.ccv',
-                'filterUpdate': 'filterUpdate.ccv',
-                'resetFilter': 'resetFilter.ccv'
+                'onChange': 'onChange.rs',
+                'filterUpdate': 'filterUpdate.rs',
+                'resetFilter': 'resetFilter.rs'
             },
             'numberFormat': '',
             'unit': '',
@@ -228,7 +228,7 @@ RS.rangeSlider = (function($, window, document, undefined) {
                 //delegate event for touch move events
                 
                 //stop body from moving so that we can make the move on the scroller handle
-                $body.on('touchmove.ccvSlider', function(e) {
+                $body.on('touchmove._RangeSlider', function(e) {
                 
                   //prevent default so that we can move the slider
                   e.preventDefault();
@@ -236,22 +236,22 @@ RS.rangeSlider = (function($, window, document, undefined) {
                 });
                 
                 //mouse up on the body 
-                $body.on(that._prvt.eventNames.mouseUp+'.ccvSlider', that, dragStop);
+                $body.on(that._prvt.eventNames.mouseUp+'._RangeSlider', that, dragStop);
                 
-                $this.on(that._prvt.eventNames.mouseMove+'.ccvSlider', that, dragGo);
+                $this.on(that._prvt.eventNames.mouseMove+'._RangeSlider', that, dragGo);
             }else{
             
                 //setup a custom events and bind them to the body
                 
                 //mouse up event that stops all the movemenet also set on the body
-                $body.on(that._prvt.eventNames.mouseUp+'.ccvSlider', that, dragStop);
+                $body.on(that._prvt.eventNames.mouseUp+'._RangeSlider', that, dragStop);
                 
                 //mouse move event that updates the positon of the mouse 
-                $body.on(that._prvt.eventNames.mouseMove+'.ccvSlider', that, dragGo);
+                $body.on(that._prvt.eventNames.mouseMove+'._RangeSlider', that, dragGo);
             }
             
             //turn off all the events
-            $elem.off('click.ccvRS', '.sliderBar');
+            $elem.off('click.RS_', '.sliderBar');
             
             //prevent defaults
             //e.preventDefault();
@@ -262,7 +262,7 @@ RS.rangeSlider = (function($, window, document, undefined) {
             return false;
         });
         //
-        $elem.on('click.ccvRS', '.sliderBar', that, onClickUpdate); //onClickUpdate
+        $elem.on('click.RS_', '.sliderBar', that, onClickUpdate); //onClickUpdate
         //mouse up stop dragging
         $(window).resize(that, adjustOffset);
     }
@@ -436,12 +436,7 @@ RS.rangeSlider = (function($, window, document, undefined) {
                 
                 //update value
                 that._prvt.currentMin = currVal;
-                //that._prvt.draggingElem = that._prvt.handleMin;
             }
-            
-            //call the drag stop
-            
-            //dragStop(e);
             
             //update labels
             labelsVal = formatLabels(that);
@@ -668,7 +663,7 @@ RS.rangeSlider = (function($, window, document, undefined) {
             }
             
             //remove custom events
-            $('body').off('.ccvSlider'); //dragStop
+            $('body').off('._RangeSlider'); //dragStop
             
             //set a flag for dragging
             that._prvt.isDragging = false;
@@ -681,7 +676,7 @@ RS.rangeSlider = (function($, window, document, undefined) {
             });
 
             //bring back the click on the bar
-            $(e.data.element).on('click.ccvRS', '.sliderBar', that, onClickUpdate); //onClickUpdate
+            $(e.data.element).on('click._RangeSlider', '.sliderBar', that, onClickUpdate); //onClickUpdate
 
             //Call Anametrix tracking only if values are set
             if (that.options.tracking.lid && that.options.tracking.lpos) {
