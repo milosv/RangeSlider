@@ -1,7 +1,7 @@
 /**
-	@author Milos Veljkovic
-	@description jQuery plugin that creates a range slider that can easily be used with event based framework, backbone.js or such
-	@version 1.0
+    @author Milos Veljkovic
+    @description jQuery plugin that creates a range slider that can easily be used with event based framework, backbone.js or such
+    @version 1.0
     @requires jQuery, modernizr
     @example $(elem).rangeSlider({
         'maxVal': 100,
@@ -21,7 +21,7 @@
     });
 */
 /**
-	@rangeSlider
+    @rangeSlider
 */
 
 //create namespace 
@@ -254,8 +254,6 @@ RS.rangeSlider = (function($, window, document, undefined) {
             $elem.off('click.RS_', '.sliderBar');
             
             //prevent defaults
-            //e.preventDefault();
-            //e.stopPropagation();
             return false;
             
         }).on('click', '.handle', function(e){
@@ -263,6 +261,7 @@ RS.rangeSlider = (function($, window, document, undefined) {
         });
         //
         $elem.on('click.RS_', '.sliderBar', that, onClickUpdate); //onClickUpdate
+
         //mouse up stop dragging
         $(window).resize(that, adjustOffset);
     }
@@ -286,6 +285,7 @@ RS.rangeSlider = (function($, window, document, undefined) {
            return false;
        }
     }
+
     //format labels
     function formatLabels(that) {
         var minVal, 
@@ -317,6 +317,7 @@ RS.rangeSlider = (function($, window, document, undefined) {
             'maxVal': maxVal
         };
     }
+
     //utility function for translating unit data into pixel data
     //this should be useful when receiving updated values from the event
 
@@ -678,10 +679,6 @@ RS.rangeSlider = (function($, window, document, undefined) {
             //bring back the click on the bar
             $(e.data.element).on('click._RangeSlider', '.sliderBar', that, onClickUpdate); //onClickUpdate
 
-            //Call Anametrix tracking only if values are set
-            if (that.options.tracking.lid && that.options.tracking.lpos) {
-                linkTrack(that.options.tracking.lid+trackingSlider, that.options.tracking.lpos);
-            }
         }
         e.preventDefault();
         e.stopPropagation();
@@ -702,7 +699,7 @@ RS.rangeSlider = (function($, window, document, undefined) {
         }else{
             
             //if the usual way just get the pageX
-            that._prvt.mouseX = e.pageX;   
+            that._prvt.mouseX = e.pageX;
         }
         //prevent default
         e.preventDefault();
