@@ -106,16 +106,6 @@ RS.rangeSlider = (function($, window, document, undefined) {
             that.options.step = $elem.data('step');
         }
         
-        //get the tracking value from data elements if it exists
-        if (!that.options.tracking.lpos) {
-            that.options.tracking.lpos = $elem.data('lpos');
-        }
-        
-        //get the tracking value from data elements if it exists
-        if (!that.options.tracking.lid) {
-            that.options.tracking.lid = $elem.data('lid');
-        }
-        
         //setup initial values for current min and max
         that._prvt.currentMin = that.options.minLimit;
         that._prvt.currentMax = that.options.maxLimit;
