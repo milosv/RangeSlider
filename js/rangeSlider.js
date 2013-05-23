@@ -11,9 +11,9 @@
         'step': 0,
         'filterName': '',
         'events': {
-            'onChange': 'onChange.ccv',
-            'filterUpdate': 'filterUpdate.ccv',
-            'resetFilter': 'resetFilter.ccv'
+            'onChange': 'onChange.rs',
+            'filterUpdate': 'filterUpdate.rs',
+            'resetFilter': 'resetFilter.rs'
         },
         'numberFormat': '',
         'unit': '',
